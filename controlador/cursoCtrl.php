@@ -37,6 +37,18 @@ class cursoCtrl{
 		$this->modelo->cursoDelete();
 	
 	}//Fin funcion borrar
+
+	//Funcion que agrega alumnos a un curso ya creado
+	function agregarAlumno(){
+		//Mando llamar al modelo del registro de curso para el alumno
+		$this->modelo->cursoInsertAlumno();
+	}//Fin funcion
+
+	//Funcion que agrega alumnos a un curso ya creado
+	function borrarAlumno(){
+		//Mando llamar al modelo del registro de curso para el alumno
+		$this->modelo->cursoDeleteAlumno();
+	}//Fin funcion
 }
 
 ?>

@@ -63,6 +63,20 @@ switch($_GET['seleccion']){
 				$controlador = new cursoCtrl();
 				$controlador -> consultar();
 			break;
+			case 'agregaAlumno':
+				//Cargo el controlador
+				include('controlador/cursoCtrl.php');
+				//Creo la instancia del controlador y ejecuto la operacion
+				$controlador = new cursoCtrl();
+				$controlador -> agregarAlumno();
+			break;
+			case 'borraAlumno':
+				//Cargo el controlador
+				include('controlador/cursoCtrl.php');
+				//Creo la instancia del controlador y ejecuto la operacion
+				$controlador = new cursoCtrl();
+				$controlador -> borrarAlumno();
+			break;
 		}//fin switch cusro
 	break;
 

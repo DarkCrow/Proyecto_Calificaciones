@@ -90,6 +90,66 @@ class cursoMod{
 		
 	}
 
+	//Inscribimos a un alumno en algun curso existente
+	function cursoInsertAlumno(){
+		$alumno = $_REQUEST['alumno'];
+		$curso = $_REQUEST['curso'];
+
+		//cargo los datos para la conexion
+		include('db_data.inc');		
+		$conexion = new mysqli($host,$user,$pass,$db);	
+		if($conexion -> connect_errno)
+			die('No hay conexion');
+
+		//Creo mi querry
+		
+		$consulta = "INSERT INTO  alumno_has_curso(alumno_idAlumno, curso_idCurso)
+					VALUES ('$alumno','$curso')";
+
+		//Ejecuto la consulta
+		$result = $conexion -> query($consulta);
+		//var_dump($conexion);
+		if($conexion->errno){
+			$conexion -> close();
+			die('No se pudo establacer la insercion '.$conexion->error);
+		}
+		else
+			echo "1 registro agregado";
+			
+		$conexion -> close();	
+	}
+
+	//Inscribimos a un alumno en algun curso existente
+	function cursoDeleteAlumno(){
+		$alumno = $_REQUEST['alumno'];
+		$curso = $_REQUEST['curso'];
+
+		//cargo los datos para la conexion
+		include('db_data.inc');		
+		$conexion = new mysqli($host,$user,$pass,$db);	
+		if($conexion -> connect_errno)
+			die('No hay conexion');
+
+		//Creo mi querry
+		
+		$consulta = "DELETE FROM alumno_has_curso 
+					WHERE alumno_idAlumno = '$alumno' 
+					AND curso_idCurso = '$curso'";
+
+		//Ejecuto la consulta
+		$result = $conexion -> query($consulta);
+		//var_dump($conexion);
+		if($conexion->errno){
+			$conexion -> close();
+			die('No se pudo establacer el borrado '.$conexion->error);
+		}
+		else
+			echo "registro borrado";
+			
+		$conexion -> close();
+		
+	}
+
 	function cursoDelete(){
 		$id = $_REQUEST['id'];
 
