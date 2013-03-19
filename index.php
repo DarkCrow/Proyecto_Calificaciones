@@ -6,35 +6,118 @@
 //if ($_GET['action'] == 'saludo')
 //	echo 'hola';
 
-switch($_GET['action']){
+switch($_GET['seleccion']){
 	case 'alumno':
-		//Cargo la informacion del controlador
-		include('controlador/alumno_ctrl.php');
-		//Creo el controlador y lo ejecuto		
-		$controlador = new alumno_ctrl();
-		$controlador -> mostrar();
+		switch($_GET['action']){
+			case 'lista':
+				//Cargo la informacion del controlador
+				include('controlador/alumno_ctrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new alumno_ctrl();
+				$controlador -> mostrar();
+			break;
+			case 'tabla':
+				//Cargo la informacion del controlador
+				include('controlador/alumno_ctrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new alumno_ctrl();
+				$controlador -> mostrar_as_table();
+			break;
+			case 'insertar':
+				//Cargo la informacion del controlador
+				include('controlador/alumno_ctrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new alumno_ctrl();
+				$controlador -> insertar();
+			break;
+			case 'delete':
+				//Cargo el controlador alumno
+				include('controlador/alumno_ctrl.php');
+				//Creo el controlador y ejecuto la operacion
+				$controlador = new alumno_ctrl();
+				$controlador->borrar();
+			break;
+		}//Fin switch alumno
 	break;
-	case 'alumno2':
-		//Cargo la informacion del controlador
-		include('controlador/alumno_ctrl.php');
-		//Creo el controlador y lo ejecuto		
-		$controlador = new alumno_ctrl();
-		$controlador -> mostrar_as_table();
+
+	case 'curso':
+		switch($_GET['action']){
+			case 'agregar':
+				//Cargo la informacion del controlador
+				include('controlador/cursoCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new cursoCtrl();
+				$controlador -> agregar();
+			break;
+			case 'borrar':
+				//Cargo la informacion del controlador
+				include('controlador/cursoCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new cursoCtrl();
+				$controlador -> borrar();
+			break;
+			case 'consultar':
+				//Cargo la informacion del controlador
+				include('controlador/cursoCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new cursoCtrl();
+				$controlador -> consultar();
+			break;
+		}//fin switch cusro
 	break;
-	case 'insertar':
-		//Cargo la informacion del controlador
-		include('controlador/alumno_ctrl.php');
-		//Creo el controlador y lo ejecuto		
-		$controlador = new alumno_ctrl();
-		$controlador -> insertar();
+
+	case 'ciclo':
+		switch($_GET['action']){
+			case 'agregar':
+				//Cargo la informacion del controlador
+				include('controlador/cicloCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new cicloCtrl();
+				$controlador -> agregar();
+			break;
+			case 'borrar':
+				//Cargo la informacion del controlador
+				include('controlador/cicloCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new cicloCtrl();
+				$controlador -> borrar();
+			break;
+			case 'consultar':
+				//Cargo la informacion del controlador
+				include('controlador/cicloCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new cicloCtrl();
+				$controlador -> consultar();
+			break;
+		}//fin switch ciclo
 	break;
-	case 'delete':
-		//Cargo el controlador alumno
-		include('controlador/alumno_ctrl.php');
-		//Creo el controlador y ejecuto la operacion
-		$controlador = new alumno_ctrl();
-		$controlador->borrar();
+
+	case 'profesor':
+		switch($_GET['action']){
+			case 'agregar':
+				//Cargo la informacion del controlador
+				include('controlador/profesorCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new profesorCtrl();
+				$controlador -> agregar();
+			break;
+			case 'borrar':
+				//Cargo la informacion del controlador
+				include('controlador/profesorCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new profesorCtrl();
+				$controlador -> borrar();
+			break;
+			case 'consultar':
+				//Cargo la informacion del controlador
+				include('controlador/profesorCtrl.php');
+				//Creo el controlador y lo ejecuto		
+				$controlador = new profesorCtrl();
+				$controlador -> consultar();
+			break;
+		}//fin switch profesor
 	break;
-}
+
+}//Fin switch principal
 ?>
 
